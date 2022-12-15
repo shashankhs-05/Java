@@ -1,4 +1,5 @@
- class Account {
+import java.util.*; 
+class Account {
    String customerName;
   int accountNumber;
   String accountType;
@@ -29,6 +30,8 @@
 
   void deposit(double amount) {
     balance += amount;
+if(accountType=="Savings")
+balance+=balance*0.6;
   }
  void displayBalance() {
     System.out.println("The current balance is: " + balance);
@@ -47,12 +50,30 @@ System.out.println("The current service charge is: " + service_charge);
 
 class aaa{
 public static void main(String args[]){
-Account shashank=new Account("Shashank",12345,"Current",45);
-System.out.println("Account holder: " + shashank.getCustomerName());
-System.out.println("Account type: " + shashank.getAccountType());
-shashank.deposit(45);
-shashank. displayBalance();
-shashank.withdrawl(78);
-shashank.withdrawl(8);
-shashank. displayBalance();
+Scanner sc=new Scanner(System.in);
+String name=sc.next();
+String type=sc.next();
+int acc=sc.nextInt();
+int balance=sc.nextInt();
+int op;
+Account shashank=new Account(name,acc,type,balance);
+System.out.println("Do you want to deposit or withdrawl");
+op=sc.nextInt();
+if(op==1){
+System.out.println("Deposit=1\nWithdrawl=2");
+int s=sc.nextInt();
+if(s==1)
+{
+System.out.println("Enter Amount");
+int mon=sc.nextInt();
+shashank.deposit(mon);
+}
+if(s==2)
+{
+System.out.println("Enter Amount");
+int mon=sc.nextInt();
+shashank.withdrawl(mon);
+}}
+}
+
 }}
